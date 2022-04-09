@@ -15,24 +15,26 @@ public class StatsService {
 
     }
 
-    public int findMax(int[] sales) { // последний месяц с пиком продаж
-        int currentMax = sales[0];
-        for (int sale : sales) {
-            if (currentMax < sale) {
-                currentMax = sale;
+    public int calcFindMax(int[] sales) { // последний месяц с пиком продаж
+        int findMax = 0;
+        for (int i = 1; i < sales.length; i++) {
+            if (sales[findMax] <= sales[i]) {
+                findMax = i;
             }
         }
-        return currentMax;
+        findMax +=1;
+        return findMax;
     }
 
-    public int findMin(int[] sales) { //последний месяц с минимумом продаж
-        int currentMin = 0;
-        for (int sale : sales) {
-            if (currentMin > sale) {
-                currentMin = sale;
+    public int calcFindMin(int[] sales) { //последний месяц с минимумом продаж
+        int findMin = 0;
+        for (int i = 1; i < sales.length; i++) {
+            if (sales[findMin] >= sales[i]) {
+                findMin = i;
             }
         }
-        return currentMin;
+        findMin += 1;
+        return findMin;
     }
 
     public int calcUnAverage(int[] sales) { //количество мес, где продажи были меньше средней

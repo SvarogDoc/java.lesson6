@@ -30,8 +30,8 @@ class StatsServiceTest {
     void shouldFindMax() { //последний месяц с пиком продаж
         StatsService service = new StatsService();
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 20;
-        int actual = service.findMax(sales);
+        int expected = 8;
+        int actual = service.calcFindMax(sales);
         assertEquals(expected, actual);
     }
 
@@ -39,8 +39,8 @@ class StatsServiceTest {
     void shouldFindMin() { //последний месяц с минимумом продаж
         StatsService service = new StatsService();
         int[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int expected = 7;
-        int actual = service.findMin(sales);
+        int expected = 9;
+        int actual = service.calcFindMin(sales);
         assertEquals(expected, actual);
     }
 
